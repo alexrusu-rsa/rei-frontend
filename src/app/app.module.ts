@@ -12,10 +12,9 @@ import { WalletService } from './services/wallet.service';
 import { MaterialModule } from './ng-modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { WalletsComponent } from './components/wallets/wallets.component';
-import { EmptyComponent } from './components/empty/empty.component';
 
 @NgModule({
-  declarations: [AppComponent, WalletsComponent, EmptyComponent],
+  declarations: [AppComponent, WalletsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
