@@ -1,17 +1,26 @@
+@import '_global.sass'
+
 :host
   width: 80%
+  height: 80%
   display: block
   margin: auto
 
   .table-container
     overflow: auto
+    width: $global-width-full
+    height: 80%
+    margin: 10px 0
 
   table
-    width: 100%
+    width: $global-width-full
+    height: $global-height-full
 
   .mat-form-field
-    font-size: 14px
-    width: 100%
+    margin: 10px 0
+    font-size: 25px
+    width: $global-width-full
+    height: 15%
 
   tr.example-detail-row
     height: 0
