@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "heroku-postbuild": "ng build",
+    "dev": "ng lint && ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,7 +23,12 @@
     "@angular/platform-browser": "~11.2.13",
     "@angular/platform-browser-dynamic": "~11.2.13",
     "@angular/router": "~11.2.13",
+    "express": "^4.17.1",
+    "koa": "2.13.1",
+    "koa-static": "5.0.0",
+    "path": "0.12.7",
     "rxjs": "~6.6.0",
+    "send": "0.17.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

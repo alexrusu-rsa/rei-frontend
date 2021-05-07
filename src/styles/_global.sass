@@ -1,0 +1,42 @@
+$global-width-full: 100%
+$global-side-wrapper-width: $global-width-full - 20%
+
+$global-width-column-thirds: 33.33%
+$global-three-equal-columns: $global-width-column-thirds $global-width-column-thirds $global-width-column-thirds
+
+$global-width-rows-thirds: 33.33%
+$global-three-equal-rows: $global-width-column-thirds $global-width-column-thirds $global-width-column-thirds
+
+$global-height-full: 100%
+
+$global-color-white: #FFFFFF
+$global-color-green: #54B179
+$global-color-blue-contrast: #023899
+$global-color-blue-text: #113A93
+$global-color-black: #000000
+$global-color-gray-contrast: #F6F6F6
+$global-color-darkgray-text: #333333
+$global-color-softblue-contrast: #B0C1DE
+$global-color-grey-dialog: #00000029
+
+$global-height-5em: 5em
+
+$global-common-HD-width: 1366px
+$global-full-HD-width: 1920px
+$global-wide-width: 1440px
+
+$global-common-HD-height: 768px
+$global-full-HD-height: 1080px
+$global-wide-height: 900px
+
+@mixin HD($height)
+  @media screen and (max-height: $global-common-HD-height + 1)
+    height: ($height)
+
+@mixin Wide($height)
+    @media screen and (min-height: $global-common-HD-height + 1) and (max-height: $global-full-HD-height )
+      height: calc(#{$height})
+
+@mixin FullHD($height)
+    @media screen and (min-height: $global-full-HD-height)
+      height: calc(#{$height})
