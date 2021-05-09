@@ -5,19 +5,12 @@ import {
   transition,
   animate,
 } from '@angular/animations';
-import {
-  AfterViewInit,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import { ResponseWrapper } from 'src/app/model/responseWrapper.model';
 import { Wallet } from 'src/app/model/wallet.model';
 import { WalletService } from 'src/app/services/wallet.service';
 
@@ -57,7 +50,8 @@ export class WalletsComponent implements OnDestroy, AfterViewInit {
   constructor(private walletService: WalletService) {
     this.walletSubscription = this.walletService
       .getWallets()
-      .subscribe((wallets: Wallet[]) => {
+      .subscribe((response: ResponseWrapper) => {
+        const wallets = response.data;
         this.wallets.data = wallets.sort(
           (wallet1: Wallet, wallet2: Wallet) =>
             wallet2.balance - wallet1.balance

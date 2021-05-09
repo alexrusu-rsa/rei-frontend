@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="newWalletForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="legacy">
+      <mat-label>Type wallet name..</mat-label>
+      <input formControlName="walletName" matInput placeholder="wallet name" />
+    </mat-form-field>
+    <div
+      *ngIf="
+        newWalletForm.controls.walletName.invalid &&
+        (newWalletForm.controls.walletName.dirty ||
+          newWalletForm.controls.walletName.touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="newWalletForm.controls.walletName.errors">
+        {{ newWalletForm.controls.walletName.errors?.err }}
+      </div>
+    </div>
+
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="!newWalletForm.valid"
+      color="primary"
+    >
+      Submit
+    </button>
+  </form>
+</div>

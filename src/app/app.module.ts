@@ -12,9 +12,11 @@ import { WalletService } from './services/wallet.service';
 import { MaterialModule } from './ng-modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { WalletsComponent } from './components/wallets/wallets.component';
+import { AddWalletComponent } from './components/add-wallet/add-wallet.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, WalletsComponent],
+  declarations: [AppComponent, WalletsComponent, AddWalletComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +25,7 @@ import { WalletsComponent } from './components/wallets/wallets.component';
     HttpClientModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [WalletService],
   bootstrap: [AppComponent],
