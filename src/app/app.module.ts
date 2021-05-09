@@ -14,9 +14,10 @@ import { FormsModule } from '@angular/forms';
 import { WalletsComponent } from './components/wallets/wallets.component';
 import { AddWalletComponent } from './components/add-wallet/add-wallet.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 
 @NgModule({
-  declarations: [AppComponent, WalletsComponent, AddWalletComponent],
+  declarations: [AppComponent, WalletsComponent, AddWalletComponent, AddTransactionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

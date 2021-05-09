@@ -1,5 +1,5 @@
 export interface Transaction {
-  sum?: number;
+  amount?: number;
   reference?: string;
 }
 

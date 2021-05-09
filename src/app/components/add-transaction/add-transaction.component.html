@@ -1,0 +1,48 @@
+<div class="container">
+  <form [formGroup]="newTransactionForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="legacy">
+      <mat-label>Type wallet name..</mat-label>
+      <input formControlName="walletName" matInput placeholder="wallet name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Type transaction reference..</mat-label>
+      <input
+        formControlName="transactionReference"
+        matInput
+        placeholder="transaction reference"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Type transaction amount..</mat-label>
+      <input
+        formControlName="transactionAmount"
+        matInput
+        placeholder="transaction amount"
+      />
+    </mat-form-field>
+
+    <div
+      *ngIf="
+        newTransactionForm.controls.walletName.invalid &&
+        (newTransactionForm.controls.walletName.dirty ||
+          newTransactionForm.controls.walletName.touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="newTransactionForm.controls.walletName.errors">
+        {{ newTransactionForm.controls.walletName.errors?.err }}
+      </div>
+    </div>
+
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="!newTransactionForm.valid"
+      color="primary"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ResponseWrapper } from '../model/responseWrapper.model';
 import { catchError, retry } from 'rxjs/operators';
+import { Transaction } from '../model/wallet.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,21 @@ export class WalletService {
     return this.http
       .post<ResponseWrapper>(environment.walletsAPI, {
         name,
+      })
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error
+      );
+  }
+
+  addTransaction(
+    name: string,
+    transaction: Transaction
+  ): Observable<ResponseWrapper> {
+    return this.http
+      .put<ResponseWrapper>(environment.walletsAPI, {
+        name,
+        transaction,
       })
       .pipe(
         retry(3), // retry a failed request up to 3 times
